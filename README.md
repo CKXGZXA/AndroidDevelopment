@@ -124,7 +124,41 @@
            });
    ```
    
-   7. 
+   7. **[NoteDetailActivity.java](https://gitee.com/ckxgzxa/AndroidDevelopment/blob/notepad/app/src/main/java/top/ckxgzxa/notepad/NoteDetailActivity.java)**
+   
+      该类关联`activity_note_detail.xml`, 
+   
+      此类中重写了onKeyDown方法, 当监测到按下返回键返回到上级页面时, 会返回*`RESULT_OK`*要求主页面刷新数据:
+   
+      ```java
+          @Override
+          public boolean onKeyDown(int keyCode, KeyEvent event) {
+              if (keyCode == KeyEvent.KEYCODE_BACK) {
+                  setResult(RESULT_OK, null);
+              }
+              return super.onKeyDown(keyCode, event);
+          }
+      ```
+   
+      随后是用户方法`public void updateNote(String topic, String content)`, 首先判断标题编辑框和内容编辑框中是否为空, 若是则直接返回, 否则从bundle中取出当前笔记id, 打开数据库, 将新的主题和内容加上当前时间更新到数据库中
+   
+      ![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/image-20220413063015777.png)
+   
+      随后是`deleteNote()` 方法, 即删除当前笔记的方法, 就是一个简单的SQL语句, 删除数据库与当前id相同的笔记即可, 自增主键保证了笔记id唯一.
+   
+      ```java
+          // 删除笔记
+          public void deleteNote() {
+              bundle = getIntent().getExtras();
+              int id = bundle.getInt("id");
+              SQLiteDatabase db = openOrCreateDatabase(this.getFilesDir().toString() + "/notes.db",
+                      MODE_PRIVATE, null);
+              String sql = "delete from notes where _id = " + id;
+              db.execSQL(sql);
+          }
+      ```
+   
+      `onCreate()` 方法中实现了一个数据库查询功能, 将笔记标题和内容显示到对应的EditText中, 随后设置两个按钮的监听器, 保存按钮的监听器
 
 
 
