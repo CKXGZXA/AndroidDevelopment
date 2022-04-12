@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">简单笔记本</string>
+    <string name="topic">请输入一个主题</string>
+    <string name="content">请输入笔记内容</string>
+    <string name="save">保存</string>
+    <string name="no">序号</string>
+    <string name="delete">删除</string>
+    <string name="title_activity_note">NoteActivity</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+</resources>

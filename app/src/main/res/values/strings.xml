@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Notepad</string>
+    <string name="topic">Please enter a topic.</string>
+    <string name="content">Please enter a note.</string>
+    <string name="save">Save</string>
+    <string name="no">no</string>
+    <string name="title_activity_note">NoteActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="delete">Delete</string>
+</resources>
