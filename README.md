@@ -158,7 +158,84 @@
           }
       ```
    
-      `onCreate()` 方法中实现了一个数据库查询功能, 将笔记标题和内容显示到对应的EditText中, 随后设置两个按钮的监听器, 保存按钮的监听器
+      `onCreate()` 方法中实现了一个数据库查询功能, 将笔记标题和内容显示到对应的EditText中, 
+   
+      ![image-20220413063747586](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/image-20220413063747586.png)
+   
+      随后设置两个按钮的监听器, 
+   
+      保存按钮的监听器获取到当前两个EditText的内容之后, 调用`updateNote(String, String)` 方法更新数据库, 随后发Toast提示更新成功, 接着设置ReturnCode为*`RESULT_OK`* , 随后调用`finish()`方法返回: 
+   
+      ```java
+      // 设置按钮save 的监听器
+      findViewById(R.id.detail_save).setOnClickListener(v -> {
+          // 获取topic和content
+          String t = topicTv.getText().toString();
+          String c = contentEt.getText().toString();
+          // 更新数据库
+          updateNote(t, c);
+          // 发弹窗表示更新成功
+          Toast.makeText(NoteDetailActivity.this, "更新成功", Toast.LENGTH_SHORT).show();
+          setResult(RESULT_OK, null);
+          finish();
+      });
+      ```
+   
+      删除按钮监听器和返回按钮类似, 不过它会直接调用`deleteNote()` 方法删除数据库数据:
+   
+      ```java
+      // 设置按钮delete 的监听器
+      findViewById(R.id.detail_delete).setOnClickListener(v -> {
+          // 删除数据库
+          deleteNote();
+          // 发弹窗表示删除成功
+          Toast.makeText(NoteDetailActivity.this, "删除成功", Toast.LENGTH_SHORT).show();
+          setResult(RESULT_OK, null);
+          finish();
+      });
+      ```
+   
+   ----
+   
+   8. 接下来是4月13日0:00-2:00的新增内容
+   
+      - 新增一个简易的密码验证界面
+   
+      - 新增[**MyApplication.java**](https://gitee.com/ckxgzxa/AndroidDevelopment/blob/notepad/app/src/main/java/top/ckxgzxa/notepad/MyApplication.java), 其中存有一个字符串类型的`password`变量及布尔型的`passed`变量, 用以存储密码和判断本次启动是否通过验证
+   
+      - 新增布局**[activity_pwd.xml](https://gitee.com/ckxgzxa/AndroidDevelopment/blob/notepad/app/src/main/res/layout/activity_pwd.xml)**
+   
+        该布局为约束布局, 里面就一个TextView和一个密码输入框和提交按钮
+   
+        ![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/image-20220413064806496.png)
+   
+      - [**PwdActivity.java**](https://gitee.com/ckxgzxa/AndroidDevelopment/blob/notepad/app/src/main/java/top/ckxgzxa/notepad/PwdActivity.java)
+   
+        给按钮设置点击事件监听器, 将密码输入框中的内容同password比较验证通过,跳转回主页面, 提示密码正确, 否则提示密码错误, 若密码框为空, 提示让用户输入密码.
+   
+        ```java
+        // 给按钮设置点击事件
+        findViewById(R.id.pwd_submit).setOnClickListener(v -> {
+            // 获取输入的密码
+            String pwd = ((EditText) findViewById(R.id.password)).getText().toString();
+            // 判断密码是否为空
+            if (pwd.isEmpty()) {
+                // 如果为空，提示用户
+                Toast.makeText(this, "请输入密码!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            // 如果不为空，判断密码是否正确
+            if (pwd.equals(MyApplication.getPassWord())) {
+                // 如果正确，跳转到主界面
+                MyApplication.setPassed(true);
+                Toast.makeText(this, "密码正确!", Toast.LENGTH_SHORT).show();
+                finish();
+            } else {
+                // 如果错误，提示用户
+                Toast.makeText(this, "密码错误!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        ```
 
 
 
@@ -166,12 +243,55 @@
 
 ### 3. 特色之处
 
+- 数据库设计
 
+  ![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/image-20220413072317704.png)
+
+- .....
+
+  
 
 -------------
 
 ### 4. 应用实际效果截图
 
-![img](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/11231977C403B508DE80334708763F54.jpg)
+- 主页面:
 
-![img](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/8FDC775F1E78BD30FC1DEB6E1F7F412D.jpg)
+  ![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/11231977C403B508DE80334708763F54.jpg)
+
+  ![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/image-20220413070403980.png)
+
+
+- 笔记详情界面:
+
+  ![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/3E304DEB4421CEE1A720BA144C37222C.jpg)
+
+
+- 新增笔记
+  
+  ![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/tutieshi_640x1278_4s.gif)
+  
+- 更新笔记
+  
+  ![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/tutieshi_640x1278_7s.gif)
+  
+- 删除笔记
+
+  ![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/tutieshi_640x1278_4s (1).gif)
+
+----
+
+> 以下为4月13日更新内容
+
+
+- 打开应用时, 应用跳转到密码输入页面:
+
+  ![img](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/7F0695979E7730AC9A1DA50D0C8E9F1F.jpg)
+
+- 未输入密码提交提示:
+
+  ![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/image-20220413070227904.png)
+
+- 输入密码错误提交提示:
+
+  ![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/image-20220413070301739.png)
