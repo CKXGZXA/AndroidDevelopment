@@ -9,4 +9,7 @@
     <string name="title_activity_note">NoteActivity</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="notice_pwdinput">请输入密码</string>
+    <string name="submit">提交</string>
+    <string name="new_note">新建</string>
 </resources>
