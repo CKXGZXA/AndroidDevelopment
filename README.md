@@ -23,21 +23,17 @@
 
 ### 2. 实现细节
 
-1. 首先我构建了一个activity_main 的 layout, 其中包含一个线性布局,在上方有两个EditText和一个保存按钮用于获取笔记内容然后将其写入数据库,下面是一个ListView, 用于将数据库中的笔记显示到屏幕中.
+1. 首先介绍主页面的布局([**activity_main.xml**](https://gitee.com/ckxgzxa/AndroidDevelopment/blob/notepad/app/src/main/res/layout/activity_main.xml)), 该页面使用线性布局, 其内组件垂直排布,从上到下分别为一个主题输入EditView, 一个内容输入EditView, 主题最大允许字符为30, 内容最大能够输入300个字符, 之后是一个保存按钮, 界面下方是一个ListView, 该ListView用于显示各条笔记, 各条笔记之间用一条褐色分界线线分隔;
 
-   ![image-20220412235704420](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/image-20220412235704420.png)
+   ![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/image-20220413004905832.png)
 
-2. ListView中Item的布局如下, 线性布局中包含一个约束布局和另一个线性布局, 其中约束布局中含有两个TextView, 分别用来显示笔记编号和笔记主题, 线性布局中含有两个垂直布局的TextView用以显示笔记更新时间和部分内容.
+2. 随后创建 LIstView 中 Item 的布局([**note.xml**)](https://gitee.com/ckxgzxa/AndroidDevelopment/blob/notepad/app/src/main/res/layout/note.xml), 此布局可以显示笔记的基本信息, 包括笔记的序号, 主题, 和部分内容预览, 该垂直线性布局中含有一个约束布局和一个线性布局, 约束布局中包含两项: 笔记序号和笔记主题, 在界面偏左 $\frac{1}{5}$ 处, 使用引导线将序号和主题分离, 序号字体具有阴影效果, 主题的背景色改为了绿色, 线性布局中含有两个TextView, 第一个TextView显示的是最后修改或者创建笔记的时间, 第二个TextView 只有一行,用来预览笔记的内容, 北京设置为一个红色边框XML, 因此跟其他组件划分开来,  
 
-   ![image-20220412235721204](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/image-20220412235721204.png)
+   ![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/image-20220413005049446.png)
 
-3. 点击ListView可进入笔记详情界面, 在此界面, 线性布局下包含了两个EditText分别显示笔记的主题和具体内容, 界面最下方有两个按钮, 分别用来保存和删除,可以对数据库中的数据进行操作.
+3. 为了实现笔记内容查看, 和更新删除功能, 创建了笔记详情布局([**activity_note_detail.xml**)](https://gitee.com/ckxgzxa/AndroidDevelopment/blob/notepad/app/src/main/res/layout/activity_note_detail.xml), 该布局为线性布局, 其中从上到下包含了一个垂直线性布局和一个水平线性布局, 垂直线性布局中包含两个EditText, 
 
-   ![image-20220412235732511](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/image-20220412235732511.png)
-
-4. 点击保存或删除返回主页面后,界面会刷新数据显示最新结果.
-
-### 3. 
+### 3. 特色之处
 
 ### 4. 应用实际效果截图
 

@@ -10,10 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EncryptedNotepad">
         <activity
-            android:name="top.ckxgzxa.notepad.NoteDetailActivity"
+            android:name=".NoteDetailActivity"
+            android:exported="false" />
+        <activity android:name=".PwdActivity"
             android:exported="false" />
         <activity
-            android:name="top.ckxgzxa.notepad.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

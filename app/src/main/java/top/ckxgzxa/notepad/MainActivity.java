@@ -36,6 +36,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 判断是否通过密码验证
+        if (!MyApplication.isPassed()){
+            // 跳转到密码验证界面
+            Intent intent = new Intent(MainActivity.this, PwdActivity.class);
+            startActivity(intent);
+        }
+
 
         listView = this.findViewById(R.id.list);
         // 给listView设置点击事件
@@ -100,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         // 使用db.query按time降序排列
 
         Cursor cursor = db.query("notes", null, null, null,
-                null, null, "time desc");
+                null, null, "time desc, _id desc");
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.note, cursor,
                 new String[]{"_id", "topic", "note", "time",},
                 new int[]{R.id.note_no,R.id.note_topic, R.id.note_content, R.id.note_time},
