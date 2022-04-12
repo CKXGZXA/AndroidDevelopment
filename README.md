@@ -277,7 +277,7 @@
   
 - 删除笔记
 
-  ![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/tutieshi_640x1278_4s (1).gif)
+  ![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/tutieshi_640x1278_4s(1).gif)
 
 ----
 
