@@ -243,7 +243,9 @@
 
 ### 3. 特色之处
 
-- 数据库设计
+- 中英文语言支持
+
+- 数据库设计如下:
 
   ![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/image-20220413072317704.png)
 
