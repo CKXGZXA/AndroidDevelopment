@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">NetworkAndSensor</string>
+    <string name="app_name">Network/Sensor</string>
+    <string name="save">Save</string>
+    <string name="enterApp">Enter</string>
+    <string name="title_activity_main">Json Parse</string>
+    <string name="qing">Sunny</string>
 </resources>

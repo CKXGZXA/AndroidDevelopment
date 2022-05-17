@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">网络/传感器应用实践</string>
+    <string name="save">保存</string>
+    <string name="enterApp">进入</string>
+    <string name="title_activity_main">Json 解析</string>
+</resources>
