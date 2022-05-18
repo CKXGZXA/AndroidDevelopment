@@ -13,6 +13,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import top.ckxgzxa.networkandsensor.MyApplication
 import top.ckxgzxa.networkandsensor.R
 import top.ckxgzxa.networkandsensor.databinding.FragmentWeatherBinding
 import top.ckxgzxa.networkandsensor.entity.ip.IpResult
@@ -149,6 +150,12 @@ class WeatherFragment : Fragment() {
                                         binding.dailyForecastInfoList3Weather.text = week[2].day.weather
                                         binding.dailyForecastInfoList3Temperature.text =
                                             "${week[2].day.temphigh}°/${week[2].night.templow}°"
+
+                                        val layoutManager = LinearLayoutManager(MyApplication.context)
+                                        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
+                                        binding.dailyForecastInfoList.layoutManager = layoutManager
+                                        val adapter = HourAdapter(weather.hourly)
+                                        binding.dailyForecastInfoList.adapter = adapter
                                     }
                                 }
                                 override fun onFailure(call: Call<WeatherResult>, t: Throwable) {
@@ -179,4 +186,6 @@ class WeatherFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }
