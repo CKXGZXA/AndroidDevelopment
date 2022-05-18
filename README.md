@@ -230,7 +230,21 @@ thread {
 
 ![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/202205181132985.png)
 
-### 7. JSON返回数据格式
+### 7.Screenshots
+
+![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/202205181615605.png)
+
+![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/202205181615292.png)
+
+![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/202205181617541.png)
+
+![](https://zxastaticpages.oss-cn-beijing.aliyuncs.com/blogpictures/202205181617962.png)
+
+
+
+
+
+### 8. JSON返回数据格式
 
 ip查询：
 
@@ -356,3 +370,4 @@ ip查询：
   }
 }
 ```
+
