@@ -8,6 +8,8 @@
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    // JSONRecyclerView
+    implementation 'com.github.TanJiaJunBeyond:JSONRecyclerView:1.0.0'
 ```
 
 使用了`视图绑定`功能，在app目录下的`build.gradle`添加:
@@ -20,7 +22,13 @@ android {
 }
 ```
 
+在settings.gradle中添加:
 
+```
+repositories {
+	maven { url 'https://jitpack.io' }
+}
+```
 
 ### 1. EnterActivity
 
