@@ -11,13 +11,19 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <TextView
+        <!--<TextView
             android:id="@+id/jsonText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:lineSpacingExtra="2dp"
             android:scrollbars="vertical"
-            android:singleLine="false" />
+            android:singleLine="false" />-->
+
+        <com.tanjiajun.jsonrecyclerview.view.JSONRecyclerView
+            android:id="@+id/jsonText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
 
     </ScrollView>
 

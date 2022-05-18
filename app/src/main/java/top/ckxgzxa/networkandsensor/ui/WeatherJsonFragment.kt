@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import retrofit2.Call
@@ -26,7 +29,7 @@ class WeatherJsonFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        thread {
+        CoroutineScope(Dispatchers.IO).launch {
             try {
                 val client = OkHttpClient()
                 val request = Request.Builder()
@@ -36,12 +39,14 @@ class WeatherJsonFragment : Fragment() {
                 val response = client.newCall(request).execute()
                 val result = response.body()?.string()
                 result?.let {
-                    binding.jsonText.text = it
+                    /*binding.jsonText.text = it*/
+                    binding.jsonText.bindData(it)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
+
     }
 
     override fun onCreateView(
