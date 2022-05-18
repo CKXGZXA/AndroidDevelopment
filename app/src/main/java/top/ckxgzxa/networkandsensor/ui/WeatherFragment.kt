@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -15,6 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import top.ckxgzxa.networkandsensor.R
 import top.ckxgzxa.networkandsensor.databinding.FragmentWeatherBinding
 import top.ckxgzxa.networkandsensor.entity.ip.IpResult
+import top.ckxgzxa.networkandsensor.entity.weather.Hourly
 import top.ckxgzxa.networkandsensor.entity.weather.WeatherResult
 import top.ckxgzxa.networkandsensor.service.IpService
 import top.ckxgzxa.networkandsensor.service.WeatherService
@@ -84,6 +86,8 @@ class WeatherFragment : Fragment() {
         icons["3"]
         Log.d("WeatherFragment", "onCreate")
 
+
+
         // 通过当前ip获取所在市
         // 从sharedPreferences中获取密钥
         val prefs = activity?.getSharedPreferences("app_config", Context.MODE_PRIVATE)
@@ -115,7 +119,7 @@ class WeatherFragment : Fragment() {
                         if (jsonData?.code == 1) {
                             city = jsonData.data.city
                         }
-                        // 异步获取天气
+                        // 获取天气
                         weatherService.getWeatherInfo(city)
                             .enqueue(object : Callback<WeatherResult> {
                                 override fun onResponse(
@@ -146,9 +150,7 @@ class WeatherFragment : Fragment() {
                                         binding.dailyForecastInfoList3Temperature.text =
                                             "${week[2].day.temphigh}°/${week[2].night.templow}°"
                                     }
-
                                 }
-
                                 override fun onFailure(call: Call<WeatherResult>, t: Throwable) {
                                     t.printStackTrace()
                                 }
@@ -169,6 +171,7 @@ class WeatherFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentWeatherBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 

@@ -1,4 +1,4 @@
-package top.ckxgzxa.networkandsensor
+package top.ckxgzxa.networkandsensor.ui
 
 import android.os.Bundle
 import android.widget.Toast

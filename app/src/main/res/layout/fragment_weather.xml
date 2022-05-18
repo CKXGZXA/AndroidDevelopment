@@ -120,10 +120,6 @@
                 android:textSize="38sp"
                 android:textStyle="bold" />
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="match_parent" />
-
 
             <TextView
                 android:id="@+id/dailyForecastInfoList1_temperature"
@@ -178,10 +174,6 @@
                 android:textColor="#345678"
                 android:textSize="38sp"
                 android:textStyle="bold" />
-
-            <View
-                android:layout_width="20dp"
-                android:layout_height="match_parent" />
 
 
             <TextView
@@ -238,10 +230,6 @@
                 android:textSize="38sp"
                 android:textStyle="bold" />
 
-            <View
-                android:layout_width="20dp"
-                android:layout_height="match_parent" />
-
 
             <TextView
                 android:id="@+id/dailyForecastInfoList3_temperature"
@@ -265,7 +253,7 @@
         android:background="#dce5" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/weeklyForecastInfoList"
+        android:id="@+id/dailyForecastInfoList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

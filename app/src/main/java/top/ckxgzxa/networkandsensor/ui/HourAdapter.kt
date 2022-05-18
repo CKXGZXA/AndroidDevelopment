@@ -1,4 +1,4 @@
-package top.ckxgzxa.networkandsensor
+package top.ckxgzxa.networkandsensor.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import top.ckxgzxa.networkandsensor.R
 import top.ckxgzxa.networkandsensor.databinding.HourItemBinding
 import top.ckxgzxa.networkandsensor.entity.weather.Hourly
 

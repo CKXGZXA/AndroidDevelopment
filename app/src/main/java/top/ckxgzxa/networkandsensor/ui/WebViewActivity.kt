@@ -1,4 +1,4 @@
-package top.ckxgzxa.networkandsensor
+package top.ckxgzxa.networkandsensor.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -18,8 +18,6 @@ class WebViewActivity : AppCompatActivity() {
         binding.webView.settings.javaScriptEnabled = true
         binding.webView.webViewClient = WebViewClient()
         intent.getStringExtra("url")?.let { binding.webView.loadUrl(it) }
-
-
     }
 
     companion object {

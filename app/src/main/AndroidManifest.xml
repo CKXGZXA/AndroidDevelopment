@@ -17,15 +17,15 @@
         android:networkSecurityConfig="@xml/network_config"
         tools:targetApi="31">
         <activity
-            android:name=".WebViewActivity"
+            android:name=".ui.WebViewActivity"
             android:launchMode="singleTask"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="false"
             android:label="@string/title_activity_main" />
         <activity
-            android:name=".EnterActivity"
+            android:name=".ui.EnterActivity"
             android:launchMode="singleTask"
             android:exported="true">
             <intent-filter>

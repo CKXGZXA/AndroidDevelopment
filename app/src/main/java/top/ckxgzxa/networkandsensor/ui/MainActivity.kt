@@ -1,4 +1,4 @@
-package top.ckxgzxa.networkandsensor
+package top.ckxgzxa.networkandsensor.ui
 
 import android.content.Context
 import android.content.Intent
@@ -7,8 +7,6 @@ import android.os.Bundle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import top.ckxgzxa.networkandsensor.databinding.ActivityMainBinding
-import top.ckxgzxa.networkandsensor.ui.WeatherFragment
-import top.ckxgzxa.networkandsensor.ui.WeatherJsonFragment
 
 class MainActivity : AppCompatActivity() {
 

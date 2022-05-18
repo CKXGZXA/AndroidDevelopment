@@ -1,7 +1,8 @@
-package top.ckxgzxa.networkandsensor
+package top.ckxgzxa.networkandsensor.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import top.ckxgzxa.networkandsensor.ActivityCollector
 
 open class BaseActivity : AppCompatActivity() {
 
